@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
 
 import GlobalStyles from "./styles/globalStyles";
 import Header from "./components/Header/indexHeader";
