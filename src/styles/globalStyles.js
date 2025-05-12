@@ -1,9 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
-import {
-  primaryYellow,
-  primaryLightYellow,
-  primaryBlack,
-} from "../config/colors";
+import * as colors from "../config/colors";
+import "react-toastify/dist/ReactToastify.css";
 
 export default createGlobalStyle`
   * {
@@ -13,7 +10,7 @@ export default createGlobalStyle`
   }
 
   body {
-    background: ${primaryBlack};
+    background: ${colors.primaryBlack};
     font-family: "Montserrat", sans-serif;
   }
 
@@ -31,7 +28,7 @@ export default createGlobalStyle`
   }
 
   h1 {
-    color: ${primaryYellow};
+    color: ${colors.primaryYellow};
     font-weight: 500;
     margin-bottom: 25px;
   }
@@ -42,7 +39,7 @@ export default createGlobalStyle`
   }
 
   button {
-    background: ${primaryLightYellow};
+    background: ${colors.primaryLightYellow};
     padding: 8px 16px;
     margin: 10px;
     font-size: 1.1rem;
