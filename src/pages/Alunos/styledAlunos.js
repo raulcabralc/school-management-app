@@ -16,8 +16,7 @@ export const Form = styled.form`
 
   input {
     margin: 10px auto;
-    padding: 7px 12px;
-    width: 300px;
+    padding: 7px;
     font-size: 1.1em;
     font-family: "Montserrat";
     border: 2px solid black;
@@ -30,8 +29,6 @@ export const Form = styled.form`
     filter: brightness(96%);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
   }
-
-  button {
-    margin: 0 auto;
-  }
 `;
+
+export const AlunoContainer = styled.div``;

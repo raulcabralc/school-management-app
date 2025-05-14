@@ -28,9 +28,10 @@ export default createGlobalStyle`
   }
 
   h1 {
-    color: ${colors.primaryYellow};
+    color: ${colors.primaryBlack};
     font-weight: 500;
     margin-bottom: 25px;
+    position: relative;
   }
 
   h2 {
@@ -53,11 +54,10 @@ export default createGlobalStyle`
 
 export const Container = styled.div`
   width: 100%;
-  max-width: 360px;
+  max-width: 700px;
   background: white;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   padding: 50px;
   margin: 30px auto;
-  text-align: center;
 `;
