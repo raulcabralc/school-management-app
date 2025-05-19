@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { primaryLightGray } from "../../config/colors";
+
 export const Title = styled.h1`
   margin-bottom: 20px;
 `;
@@ -46,12 +48,14 @@ export const AlunoContainer = styled.div`
 
   h2 {
     font-size: 1.4em;
+    font-family: "Outfit", "Montserrat", sans-serif;
   }
 
   .aluno {
-    border-top: 2px solid black;
+    border-top: 2px solid ${primaryLightGray};
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-between;
     gap: 30px;
     align-items: center;
     padding: 20px 0;
@@ -59,5 +63,16 @@ export const AlunoContainer = styled.div`
 
   :first-child {
     border: none;
+  }
+
+  .opcoes {
+    display: flex;
+    width: 100px;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .delete {
+    color: firebrick;
   }
 `;

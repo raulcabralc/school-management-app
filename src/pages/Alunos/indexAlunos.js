@@ -1,10 +1,10 @@
 import React from "react";
+import { FaPen, FaUserSlash, FaUserCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 import { Container } from "../../styles/globalStyles";
 import { Title, AlunoContainer } from "./styledAlunos";
 import axios from "../../services/axios";
-
-import userDefaultImage from "../../images/user.jpg";
 
 export default function Alunos() {
   const [alunos, setAlunos] = React.useState([]);
@@ -38,18 +38,19 @@ export default function Alunos() {
                   }}
                 />
               ) : (
-                <img
-                  src={userDefaultImage}
-                  alt={`${aluno.name} não possui foto`}
-                  onError={(e) => {
-                    console.log(e);
-                  }}
-                />
+                <FaUserCircle size={60} />
               )}
 
-              <h2>{aluno.name}</h2>
+              <h2>
+                {aluno.name} {aluno.surname}
+              </h2>
               <div className="opcoes">
-                <p>Resto</p>
+                <Link to={`/aluno/${aluno.id}/edit`}>
+                  <FaPen size={16} />
+                </Link>
+                <Link className="delete" to={`/aluno/${aluno.id}/delete`}>
+                  <FaUserSlash size={20} />
+                </Link>
               </div>
             </div>
           ))}

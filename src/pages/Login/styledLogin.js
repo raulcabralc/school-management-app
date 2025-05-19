@@ -32,6 +32,7 @@ export const Form = styled.form`
   }
 
   button {
-    margin: 0 auto;
+    width: 250px;
+    align-self: center;
   }
 `;

@@ -7,6 +7,8 @@ export const primaryLightBlack = "#2A2E34";
 export const primaryLighterBlack = "#3B3F46";
 export const primaryDarkBlack = "#101316";
 
+export const primaryLightGray = "#DEDEDE";
+
 export const primarySuccess = "#53A653";
 export const primaryError = "#E53935";
 export const primaryInfo = "#57B3D5";
