@@ -31,4 +31,33 @@ export const Form = styled.form`
   }
 `;
 
-export const AlunoContainer = styled.div``;
+export const AlunoContainer = styled.div`
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+
+  img {
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+  }
+
+  h2 {
+    font-size: 1.4em;
+  }
+
+  .aluno {
+    border-top: 2px solid black;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 30px;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  :first-child {
+    border: none;
+  }
+`;
