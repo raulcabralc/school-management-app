@@ -1,6 +1,7 @@
 export const primaryYellow = "#EC9C04";
 export const primaryLightYellow = "#F5B301";
 export const primaryLighterYellow = "#FED053";
+export const primaryDarkYellow = "#AD7200";
 
 export const primaryBlack = "#1E2328";
 export const primaryLightBlack = "#2A2E34";

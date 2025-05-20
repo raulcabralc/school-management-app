@@ -49,6 +49,26 @@ export default createGlobalStyle`
     text-transform: uppercase;
     color: white;
     font-family: "Montserrat", sans-serif;
+    transition: all 0.15s ease-in-out;
+  }
+
+  button:hover {
+    background: ${colors.primaryBlack};
+    color: ${colors.primaryYellow}
+  }
+
+  button:active {
+    filter: brightness(80%)
+  }
+
+  .common-anchor {
+    width: 100%;
+    text-align: center;
+  }
+
+  .common-anchor a {
+    color: ${colors.primaryDarkYellow};
+    text-decoration: underline solid ${colors.primaryYellow};
   }
 `;
 

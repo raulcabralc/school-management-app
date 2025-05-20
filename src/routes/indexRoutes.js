@@ -8,7 +8,7 @@ import Page404 from "../pages/Page404/index404";
 import AlunoInd from "../pages/Aluno Individual/indexAlunoInd";
 import Alunos from "../pages/Alunos/indexAlunos";
 import Fotos from "../pages/Fotos/indexFotos";
-import Register from "../pages/Register/indexRegister";
+import Register from "../pages/Cadastro/indexRegister";
 
 export default function Routes() {
   return (

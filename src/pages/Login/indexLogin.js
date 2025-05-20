@@ -14,6 +14,9 @@ export default function Login() {
           <input placeholder="Senha" />
           <button>Entrar</button>
         </Form>
+        <div className="common-anchor">
+          <a href="/register">Não possui cadastro?</a>
+        </div>
       </Container>
     </>
   );
