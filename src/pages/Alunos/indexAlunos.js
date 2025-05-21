@@ -31,7 +31,7 @@ export default function Alunos() {
             <div className="aluno" key={String(aluno.id)}>
               {aluno.Photos && aluno.Photos.length > 0 ? (
                 <img
-                  src={aluno.Photos[0].url}
+                  src={aluno.Photos[aluno.Photos.length - 1].url}
                   alt={`Foto de ${aluno.name}`}
                   onError={(e) => {
                     console.log(e);

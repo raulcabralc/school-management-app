@@ -64,6 +64,7 @@ export default createGlobalStyle`
   .common-anchor {
     width: 100%;
     text-align: center;
+    margin-top: 10px;
   }
 
   .common-anchor a {

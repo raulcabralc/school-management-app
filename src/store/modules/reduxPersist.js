@@ -3,9 +3,9 @@ import { persistReducer } from "redux-persist";
 export default function reducers(reducers) {
   const persistedReducers = persistReducer(
     {
-      key: "NOME-APP",
+      key: "SCHOOL-MANAGEMENT",
       storage: storage,
-      whitelist: ["buttonReducer"],
+      whitelist: ["auth"],
     },
     reducers
   );
