@@ -1,13 +1,9 @@
 import styled from "styled-components";
 
-import {
-  primaryYellow,
-  primaryBlack,
-  primaryDarkBlack,
-} from "../../config/colors";
+import * as colors from "../../config/colors";
 
 export const Nav = styled.nav`
-  background: ${primaryYellow};
+  background: ${colors.primaryYellow};
   height: 80px;
   display: flex;
   justify-content: center;
@@ -45,21 +41,47 @@ export const Nav = styled.nav`
     content: "";
   }
 
-  .links .login-register a {
-    background: ${primaryBlack};
-    color: ${primaryYellow};
+  .links .login-register a.a-button {
+    background: ${colors.primaryBlack};
+    color: ${colors.primaryYellow};
     padding: 5px;
     width: 130px;
     text-align: center;
     border-radius: 5px;
     font-size: 1.1em;
     font-weight: 500;
-    box-shadow: 0 0 5px ${primaryBlack};
+    box-shadow: 0 0 5px ${colors.primaryBlack};
     transition: all ease-in-out 0.15s;
   }
 
-  .links .login-register a:hover {
-    background: ${primaryDarkBlack};
+  .links .login-register a.a-button:hover {
+    background: ${colors.primaryDarkBlack};
     color: white;
+  }
+
+  .logged {
+    margin: auto;
+    color: ${colors.primaryLightBlack};
+    padding: 5px;
+    border-radius: 5px;
+    transition: all ease-in-out 0.15s;
+  }
+
+  .logged:hover {
+    color: ${colors.primaryLighterBlack};
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .logout {
+    background: ${colors.primaryDanger} !important;
+  }
+
+  .logout:hover {
+    background: ${colors.primaryDarkDanger} !important;
+  }
+
+  .user {
+    color: ${colors.primaryDarkBlack};
+    font-weight: 600;
   }
 `;

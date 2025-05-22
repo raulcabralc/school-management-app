@@ -1,18 +1,29 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 import { Container } from "../../styles/globalStyles";
 import { Title, Paragraph, Form } from "./styledLogin";
 
 import { isEmail } from "validator";
+import { get } from "lodash";
+
 import * as actions from "../../store/modules/auth/actions";
 
-export default function Login() {
+export default function Login(props) {
   const dispatch = useDispatch();
+
+  const prevPath = get(props, "location.state.prevPath", "/");
+
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  if (isLoggedIn) {
+    <Redirect to={{ pathname: "/" }} />;
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -34,6 +45,7 @@ export default function Login() {
       actions.loginRequest({
         email,
         password,
+        prevPath,
       })
     );
   }

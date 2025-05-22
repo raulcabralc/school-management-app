@@ -20,7 +20,8 @@ export default function Routes() {
       <MyRoute exact path="/aluno/:id/delete" component={AlunoInd} isClosed />
       <MyRoute exact path="/aluno/" component={AlunoInd} isClosed />
       <MyRoute exact path="/fotos/:id" component={Fotos} isClosed />
-      <MyRoute exact path="/closed" isClosed />
+      <MyRoute exact path="/logout" logout />
+      <MyRoute exact path="/loggedin" loggedin />
       <MyRoute path="*" component={Page404} />
     </Switch>
   );

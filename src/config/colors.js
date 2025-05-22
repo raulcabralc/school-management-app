@@ -10,6 +10,9 @@ export const primaryDarkBlack = "#101316";
 
 export const primaryLightGray = "#DEDEDE";
 
+export const primaryDanger = "#D41915";
+export const primaryDarkDanger = "#A3120F";
+
 export const primarySuccess = "#53A653";
 export const primaryError = "#E53935";
 export const primaryInfo = "#57B3D5";

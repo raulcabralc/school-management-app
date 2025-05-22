@@ -1,10 +1,9 @@
-import { act } from "react";
+// import { act } from "react";
 import * as types from "../types";
-import { toast } from "react-toastify";
 
 const initialState = {
   isLoggedIn: false,
-  token: false,
+  token: "",
   user: {},
   isLoading: false,
 };
@@ -12,8 +11,20 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case types.LOGIN_REQUEST: {
-      console.log("REDUCER", action.payload);
       return state;
+    }
+
+    case types.LOGIN_SUCCESS: {
+      let newState = { ...state };
+      newState.isLoggedIn = true;
+      newState.token = action.payload.token;
+      newState.user = action.payload.user;
+      return newState;
+    }
+
+    case types.LOGIN_FAILURE: {
+      let newState = { ...initialState };
+      return newState;
     }
 
     default:

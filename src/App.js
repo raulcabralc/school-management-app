@@ -16,7 +16,11 @@ function App() {
       <PersistGate persistor={persistor}>
         <BrowserRouter>
           <GlobalStyles />
-          <ToastContainer autoClose={3000} className="toast-container" />
+          <ToastContainer
+            autoClose={3000}
+            className="toast-container"
+            closeOnClick={true}
+          />
           <Header />
           <Routes />
         </BrowserRouter>
