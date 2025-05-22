@@ -42,11 +42,7 @@ export default function Register() {
         password,
       });
 
-      toast.success("Cadastro realizado!");
-
-      setTimeout(() => {
-        history.push("/login");
-      }, 3500);
+      history.push("/registered");
     } catch (e) {
       const errors = get(e, "response.data.errors", 0);
 

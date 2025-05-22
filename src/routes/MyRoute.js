@@ -13,6 +13,7 @@ export default function MyRoute({
   isClosed,
   logout,
   loggedin,
+  registered,
   ...rest
 }) {
   const dispatch = useDispatch();
@@ -37,9 +38,17 @@ export default function MyRoute({
   }
 
   if (loggedin) {
-    toast.success("Login efetuado!");
+    if (isLoggedIn) {
+      toast.success("Login efetuado!");
+    }
 
     return <Redirect to={{ pathname: "/" }} />;
+  }
+
+  if (registered) {
+    toast.success("Usuário cadastrado!");
+
+    return <Redirect to={{ pathname: "/login" }} />;
   }
 
   return <Route {...rest} component={Component} />;
