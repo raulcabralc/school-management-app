@@ -5,6 +5,7 @@ import { Redirect } from "react-router-dom";
 
 import { Container } from "../../styles/globalStyles";
 import { Title, Paragraph, Form } from "./styledLogin";
+import Loading from "../../components/Loading/indexLoading";
 
 import { isEmail } from "validator";
 import { get } from "lodash";
@@ -17,6 +18,7 @@ export default function Login(props) {
   const prevPath = get(props, "location.state.prevPath", "/");
 
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const isLoading = useSelector((state) => state.auth.isLoading);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -53,6 +55,7 @@ export default function Login(props) {
   return (
     <>
       <Container>
+        <Loading isLoading={isLoading} />
         <Title>Login</Title>
         <Paragraph>Faça login com sua conta</Paragraph>
         <Form>

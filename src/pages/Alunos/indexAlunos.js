@@ -4,16 +4,21 @@ import { Link } from "react-router-dom";
 
 import { Container } from "../../styles/globalStyles";
 import { Title, AlunoContainer } from "./styledAlunos";
+import Loading from "../../components/Loading/indexLoading";
+
 import axios from "../../services/axios";
 
 export default function Alunos() {
   const [alunos, setAlunos] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   React.useEffect(() => {
     async function getData() {
       try {
+        setIsLoading(true);
         const response = await axios.get("http://35.198.38.2/students/");
         setAlunos(response.data);
+        setIsLoading(false);
       } catch (e) {
         console.log("Error:", e);
       }
@@ -25,6 +30,7 @@ export default function Alunos() {
   return (
     <>
       <Container>
+        <Loading isLoading={isLoading} />
         <Title>Alunos</Title>
         <AlunoContainer>
           {alunos.map((aluno) => (

@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 
 import { Container } from "../../styles/globalStyles";
 import { Title, Paragraph, Form } from "./styledRegister";
+import Loading from "../../components/Loading/indexLoading";
 
 import { isEmail } from "validator";
 import axios from "../../services/axios";
@@ -13,6 +14,8 @@ export default function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = React.useState(false);
+
   const history = useHistory();
 
   async function handleSubmit(e) {
@@ -36,6 +39,7 @@ export default function Register() {
     if (formErrors.length > 0) return;
 
     try {
+      setIsLoading(true);
       await axios.post("/users/", {
         name,
         email,
@@ -47,12 +51,15 @@ export default function Register() {
       const errors = get(e, "response.data.errors", 0);
 
       errors.forEach((error) => toast.error(error));
+    } finally {
+      setIsLoading(false);
     }
   }
 
   return (
     <>
       <Container>
+        <Loading isLoading={isLoading} />
         <Title>Cadastro</Title>
         <Paragraph>Cadastre-se criando uma conta</Paragraph>
         <Form>
