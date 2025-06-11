@@ -21,19 +21,20 @@ export default function User() {
   const id = user.id;
 
   useEffect(() => {
-    if (!user.id) return;
+    if (!id) return;
 
     setName(user.name);
     setEmail(user.email);
-  }, [user.email, user.name, user.id]);
-
-  function handleRenewToken() {
-    dispatch(actions.renewTokenRequest({ email, password }));
-  }
+  }, [user.email, user.name, id]);
 
   function handleSubmit(e) {
     e.preventDefault();
     const formErrors = [];
+
+    if (!id) {
+      toast.info("É preciso fazer login para editar um usuário.");
+      return;
+    }
 
     if (name.length < 3 || name.length > 30) {
       formErrors.push("Nome deve ter entre 3 a 30 caracteres.");
@@ -52,8 +53,6 @@ export default function User() {
     if (formErrors.length > 0) return;
 
     dispatch(actions.userRequest({ name, email, password, id }));
-
-    handleRenewToken();
   }
 
   return (

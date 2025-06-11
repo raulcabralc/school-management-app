@@ -7,14 +7,11 @@ import { Title, Paragraph, Form } from "./styledLogin";
 import Loading from "../../components/Loading/indexLoading";
 
 import { isEmail } from "validator";
-import { get } from "lodash";
 
 import * as actions from "../../store/modules/auth/actions";
 
 export default function Login(props) {
   const dispatch = useDispatch();
-
-  const prevPath = get(props, "location.state.prevPath", "/");
 
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const isLoading = useSelector((state) => state.auth.isLoading);
@@ -46,7 +43,6 @@ export default function Login(props) {
       actions.loginRequest({
         email,
         password,
-        prevPath,
       })
     );
   }

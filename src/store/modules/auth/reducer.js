@@ -49,6 +49,12 @@ export default function reducer(state = initialState, action) {
       return newState;
     }
 
+    case types.RENEW_TOKEN_REQUEST: {
+      let newState = { ...state };
+      newState.isLoading = true;
+      return newState;
+    }
+
     default:
       return state;
   }
