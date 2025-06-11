@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
 
 import { Container } from "../../styles/globalStyles";
 import { Title, Paragraph, Form } from "./styledLogin";
@@ -24,7 +23,7 @@ export default function Login(props) {
   const [password, setPassword] = useState("");
 
   if (isLoggedIn) {
-    <Redirect to={{ pathname: "/" }} />;
+    window.location.pathname = "/";
   }
 
   function handleSubmit(e) {

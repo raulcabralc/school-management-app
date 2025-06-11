@@ -61,6 +61,15 @@ export const AlunoContainer = styled.div`
     padding: 20px 0;
   }
 
+  .aluno-foto-nome {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+  }
+
   :first-child {
     border: none;
   }

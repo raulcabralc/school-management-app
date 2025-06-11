@@ -20,7 +20,7 @@ export default function Header() {
           <div className="login-register">
             {isLoggedIn ? (
               <>
-                <Link className="logged" to={`/user/${user.id}`}>
+                <Link className="logged" to={`/user/`}>
                   Logado como <span className="user">{user.name}</span>
                 </Link>
                 <Link className="logout a-button" to={`/logout`}>

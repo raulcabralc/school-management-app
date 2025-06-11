@@ -35,21 +35,23 @@ export default function Alunos() {
         <AlunoContainer>
           {alunos.map((aluno) => (
             <div className="aluno" key={String(aluno.id)}>
-              {aluno.Photos && aluno.Photos.length > 0 ? (
-                <img
-                  src={aluno.Photos[aluno.Photos.length - 1].url}
-                  alt={`Foto de ${aluno.name}`}
-                  onError={(e) => {
-                    console.log(e);
-                  }}
-                />
-              ) : (
-                <FaUserCircle size={60} />
-              )}
+              <div className="aluno-foto-nome">
+                {aluno.Photos && aluno.Photos.length > 0 ? (
+                  <img
+                    src={aluno.Photos[aluno.Photos.length - 1].url}
+                    alt={`Foto de ${aluno.name}`}
+                    onError={(e) => {
+                      console.log(e);
+                    }}
+                  />
+                ) : (
+                  <FaUserCircle size={60} />
+                )}
 
-              <h2>
-                {aluno.name} {aluno.surname}
-              </h2>
+                <h2>
+                  {aluno.name} {aluno.surname}
+                </h2>
+              </div>
               <div className="opcoes">
                 <Link to={`/aluno/${aluno.id}/edit`}>
                   <FaPen size={16} />

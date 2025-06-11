@@ -20,3 +20,31 @@ export function loginFailure(payload) {
     payload,
   };
 }
+
+export function userRequest(payload) {
+  return {
+    type: types.USER_REQUEST,
+    payload,
+  };
+}
+
+export function userSuccess(payload) {
+  return {
+    type: types.USER_SUCCESS,
+    payload,
+  };
+}
+
+export function userFailure(payload) {
+  return {
+    type: types.USER_FAILURE,
+    payload,
+  };
+}
+
+export function renewTokenRequest(payload) {
+  return {
+    type: types.RENEW_TOKEN_REQUEST,
+    payload,
+  };
+}

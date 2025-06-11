@@ -9,6 +9,12 @@ export const Paragraph = styled.p`
   font-size: 1.2rem;
 `;
 
+export const Reminder = styled.p`
+  margin: 10px;
+  font-size: 16px;
+  text-align: center;
+`;
+
 export const Form = styled.form`
   display: flex;
   flex-flow: column wrap;
