@@ -10,6 +10,7 @@ import Alunos from "../pages/Alunos/indexAlunos";
 import Fotos from "../pages/Fotos/indexFotos";
 import Register from "../pages/Cadastro/indexRegister";
 import User from "../pages/User/indexUser";
+import EditAluno from "../pages/Edit Aluno/indexEditAluno";
 
 export default function Routes() {
   return (
@@ -18,8 +19,8 @@ export default function Routes() {
       <MyRoute exact path="/login" component={Login} isClosed={false} />
       <MyRoute exact path="/register" component={Register} isClosed={false} />
       <MyRoute exact path="/user" component={User} isClosed={false} />
-      <MyRoute exact path="/aluno/:id/edit" component={AlunoInd} isClosed />
-      <MyRoute exact path="/aluno/:id/delete" component={AlunoInd} isClosed />
+      <MyRoute exact path="/aluno/edit/:id" component={EditAluno} isClosed />
+      <MyRoute exact path="/aluno/delete/:id" component={AlunoInd} isClosed />
       <MyRoute exact path="/aluno/" component={AlunoInd} isClosed />
       <MyRoute exact path="/fotos/:id" component={Fotos} isClosed />
       <MyRoute exact path="/registered" registered />

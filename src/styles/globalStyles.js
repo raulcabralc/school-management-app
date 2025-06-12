@@ -73,6 +73,7 @@ export default createGlobalStyle`
 `;
 
 export const Container = styled.div`
+  position: relative;
   width: 100%;
   max-width: 900px;
   background: white;

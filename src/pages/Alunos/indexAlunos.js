@@ -16,7 +16,7 @@ export default function Alunos() {
     async function getData() {
       try {
         setIsLoading(true);
-        const response = await axios.get("http://35.198.38.2/students/");
+        const response = await axios.get("/students");
         setAlunos(response.data);
         setIsLoading(false);
       } catch (e) {
@@ -38,7 +38,7 @@ export default function Alunos() {
               <div className="aluno-foto-nome">
                 {aluno.Photos && aluno.Photos.length > 0 ? (
                   <img
-                    src={aluno.Photos[aluno.Photos.length - 1].url}
+                    src={aluno.Photos[0].url}
                     alt={`Foto de ${aluno.name}`}
                     onError={(e) => {
                       console.log(e);
@@ -54,10 +54,10 @@ export default function Alunos() {
                 <h3>{aluno.email}</h3>
               </div>
               <div className="opcoes">
-                <Link to={`/aluno/${aluno.id}/edit`}>
+                <Link to={`/aluno/edit/${aluno.id}`}>
                   <FaPen size={16} />
                 </Link>
-                <Link className="delete" to={`/aluno/${aluno.id}/delete`}>
+                <Link className="delete" to={`/aluno/delete/${aluno.id}`}>
                   <FaUserSlash size={20} />
                 </Link>
               </div>

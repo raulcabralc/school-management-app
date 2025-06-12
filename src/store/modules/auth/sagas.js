@@ -61,31 +61,8 @@ function* userRequest({ payload }) {
   }
 }
 
-// function* renewTokenRequest({ payload }) {
-//   try {
-//     const { email, password } = payload;
-
-//     const response = yield call(axios.post, "/token", { email, password });
-
-//     axios.defaults.headers.Authorization = `Bearer ${response.data.token}`;
-
-//     yield put(
-//       actions.loginSuccess({
-//         token: response.data.token,
-//         user: response.data.user,
-//       })
-//     );
-
-//     toast.success("Renovou token");
-//   } catch (e) {
-//     toast.error("Não renovou token");
-//     console.log(e);
-//   }
-// }
-
 export default all([
   takeLatest(types.LOGIN_REQUEST, loginRequest),
   takeLatest(types.PERSIST_REHYDRATE, persistRehydrate),
   takeLatest(types.USER_REQUEST, userRequest),
-  // takeLatest(types.RENEW_TOKEN_REQUEST, renewTokenRequest),
 ]);
