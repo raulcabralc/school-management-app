@@ -74,7 +74,7 @@ export default createGlobalStyle`
 
 export const Container = styled.div`
   width: 100%;
-  max-width: 700px;
+  max-width: 900px;
   background: white;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);

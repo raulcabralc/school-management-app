@@ -51,6 +51,7 @@ export default function Alunos() {
                 <h2>
                   {aluno.name} {aluno.surname}
                 </h2>
+                <h3>{aluno.email}</h3>
               </div>
               <div className="opcoes">
                 <Link to={`/aluno/${aluno.id}/edit`}>
