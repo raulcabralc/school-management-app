@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { primaryLightGray } from "../../config/colors";
+import * as colors from "../../config/colors";
 
 export const Title = styled.h1`
   margin-bottom: 20px;
@@ -52,13 +52,15 @@ export const AlunoContainer = styled.div`
   }
 
   .aluno {
-    border-top: 2px solid ${primaryLightGray};
+    border-top: 2px solid ${colors.primaryLightGray};
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     gap: 30px;
     align-items: center;
-    padding: 20px 0;
+    padding: 10px 0;
+    font-size: 16px;
+    margin-left: 15px;
   }
 
   .aluno-foto-nome {
@@ -81,7 +83,50 @@ export const AlunoContainer = styled.div`
     align-items: center;
   }
 
+  .opcoes .confirmar-delete {
+    background: firebrick;
+    color: white;
+    padding: 3px;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-bottom: 3px;
+    transition: all ease-in-out 0.1s;
+  }
+
+  .opcoes .confirmar-delete:hover {
+    filter: brightness(80%);
+    box-shadow: 0 0 4px firebrick;
+  }
+
   .delete {
     color: firebrick;
+    background: none;
   }
+`;
+
+export const AlunosContainer = styled.div`
+  .classe-separador {
+    color: firebrick;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 10px 0 5px 0;
+    position: relative;
+  }
+
+  .classe-separador::after {
+    content: "";
+    background: firebrick;
+    position: absolute;
+    top: 9.5px;
+    left: 90px;
+    width: 90%;
+    height: 4px;
+    border-radius: 100px;
+  }
+`;
+
+export const SemAlunos = styled.h2`
+  text-align: center;
+  padding: 15px;
+  color: ${colors.primaryGray};
 `;

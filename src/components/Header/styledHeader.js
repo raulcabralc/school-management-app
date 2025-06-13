@@ -73,7 +73,7 @@ export const Nav = styled.nav`
   }
 
   .logout {
-    background: ${colors.primaryDanger} !important;
+    background: ${colors.primaryBlack} !important;
   }
 
   .logout:hover {
