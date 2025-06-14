@@ -30,15 +30,17 @@ export const Nav = styled.nav`
 
   .navigation a {
     position: relative;
+    font-weight: 600;
+    font-size: 26px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 3px solid ${colors.primaryBlack};
+    transition: all ease-in-out 0.15s;
   }
 
-  .navigation a::after {
-    content: "|";
-    margin-left: 20px;
-  }
-
-  .navigation a:last-child::after {
-    content: "";
+  .navigation a:hover {
+    box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.2);
+    transform: scale(102%);
   }
 
   .links .login-register a.a-button {

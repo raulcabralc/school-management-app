@@ -71,6 +71,7 @@ export default function Alunos() {
 
       const novosAlunos = [...alunos];
       const alunoDel = novosAlunos.splice(index, 1);
+      history.push("/");
       toast.success(
         <span>
           Aluno <b>{alunoDel[0].name}</b> excluído.

@@ -9,6 +9,7 @@ import store, { persistor } from "./store/indexStore";
 import GlobalStyles from "./styles/globalStyles";
 import Header from "./components/Header/indexHeader";
 import Routes from "./routes/indexRoutes";
+import Footer from "./components/Footer/indexFooter";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           />
           <Header />
           <Routes />
+          <Footer />
         </BrowserRouter>
       </PersistGate>
     </Provider>

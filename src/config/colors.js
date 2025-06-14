@@ -3,7 +3,7 @@ export const primaryLightYellow = "#F5B301";
 export const primaryLighterYellow = "#FED053";
 export const primaryDarkYellow = "#AD7200";
 
-export const primaryBlack = "#1E2328";
+export const primaryBlack = "#212121";
 export const primaryLightBlack = "#2A2E34";
 export const primaryLighterBlack = "#3B3F46";
 export const primaryDarkBlack = "#101316";

@@ -68,10 +68,20 @@ export const VoltarContainer = styled.div`
     justify-content: center;
     align-items: center;
     z-index: 1;
+    background: ${colors.primaryBlack};
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2);
+    transition: all ease-in-out 0.1s;
 
     & .arrow {
       margin-right: 10px;
       font-weight: 300;
+    }
+
+    &:hover {
+      color: ${colors.primaryYellow};
     }
   }
 `;
