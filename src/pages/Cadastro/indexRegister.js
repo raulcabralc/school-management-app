@@ -22,8 +22,8 @@ export default function Register() {
     e.preventDefault();
     const formErrors = [];
 
-    if (name.length < 3 || name.length > 30) {
-      formErrors.push("Nome deve ter entre 3 a 30 caracteres.");
+    if (name.length < 4 || name.length > 50) {
+      formErrors.push("Nome deve ter entre 4 a 50 caracteres.");
     }
 
     if (!isEmail(email)) {

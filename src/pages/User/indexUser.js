@@ -3,14 +3,17 @@ import { toast } from "react-toastify";
 import { useSelector, useDispatch } from "react-redux";
 
 import { Container } from "../../styles/globalStyles";
-import { Title, Paragraph, Form, Reminder } from "./styledUser";
+import { Title, Paragraph, Form, Reminder, ExcluirUser } from "./styledUser";
 import Loading from "../../components/Loading/indexLoading";
 
 import { isEmail } from "validator";
 import * as actions from "../../store/modules/auth/actions";
+import axios from "../../services/axios";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function User() {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -55,6 +58,45 @@ export default function User() {
     dispatch(actions.userRequest({ name, email, password, id }));
   }
 
+  function handleConfirmDeleteUser(e) {
+    e.preventDefault();
+
+    const delButton = e.currentTarget;
+    const confirm = e.currentTarget.nextSibling;
+    const cancel = confirm.nextSibling;
+    delButton.classList.add("display-none");
+    cancel.classList.remove("display-none");
+    confirm.classList.remove("display-none");
+  }
+
+  function abortDeleteUser(e) {
+    e.preventDefault();
+
+    const cancel = e.currentTarget;
+    const delButton = e.currentTarget.previousSibling.previousSibling;
+    const confirm = e.currentTarget.previousSibling;
+    cancel.classList.add("display-none");
+    confirm.classList.add("display-none");
+    delButton.classList.remove("display-none");
+  }
+
+  async function handleDeleteUser(e) {
+    e.preventDefault();
+
+    try {
+      await axios.delete("/users", user);
+
+      history.push("/");
+
+      dispatch(actions.loginFailure());
+      toast.info(
+        <span>
+          Usuário <b>{user.name}</b> excluído.
+        </span>
+      );
+    } catch (e) {}
+  }
+
   return (
     <>
       <Container>
@@ -87,6 +129,18 @@ export default function User() {
             Confirmar
           </button>
         </Form>
+        <ExcluirUser onClick={handleConfirmDeleteUser}>
+          Excluir Usuário
+        </ExcluirUser>
+        <ExcluirUser onClick={handleDeleteUser} className="display-none">
+          Confirmar
+        </ExcluirUser>
+        <ExcluirUser
+          onClick={abortDeleteUser}
+          className="cancelar display-none"
+        >
+          Cancelar
+        </ExcluirUser>
       </Container>
     </>
   );

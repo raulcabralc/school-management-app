@@ -11,7 +11,7 @@ export const FooterContainer = styled.div`
   background: ${colors.primaryDarkBlack};
   color: ${colors.primaryGray};
   width: 100%;
-  height: 100px;
+  height: 125px;
   text-align: center;
   padding: 10px;
   border-top: 2.5px solid ${colors.primaryYellow};

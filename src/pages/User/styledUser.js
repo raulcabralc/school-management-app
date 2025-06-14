@@ -42,3 +42,29 @@ export const Form = styled.form`
     align-self: center;
   }
 `;
+
+export const ExcluirUser = styled.button`
+  background: white;
+  color: firebrick;
+  border: 2px solid firebrick;
+
+  &:hover {
+    background: firebrick;
+    color: white;
+  }
+
+  &.display-none {
+    display: none;
+  }
+
+  &.cancelar {
+    background: #eee;
+    border: 2px solid #6f6f6f;
+    color: #6f6f6f;
+
+    &:hover {
+      background: black;
+      color: white;
+    }
+  }
+`;

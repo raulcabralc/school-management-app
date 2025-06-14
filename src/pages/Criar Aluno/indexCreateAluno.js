@@ -130,7 +130,7 @@ export default function CreateAluno() {
           />
           <label>Idade:</label>
           <input
-            placeholder="Email do aluno"
+            placeholder="Idade do aluno"
             type="text"
             value={age}
             onChange={(e) => setAge(e.target.value)}

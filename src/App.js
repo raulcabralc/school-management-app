@@ -5,11 +5,23 @@ import { Provider } from "react-redux";
 
 import { PersistGate } from "redux-persist/integration/react";
 
+import styled from "styled-components";
+
 import store, { persistor } from "./store/indexStore";
 import GlobalStyles from "./styles/globalStyles";
 import Header from "./components/Header/indexHeader";
 import Routes from "./routes/indexRoutes";
 import Footer from "./components/Footer/indexFooter";
+
+const AppContainer = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
+
+const MainContent = styled.main`
+  flex: 1;
+`;
 
 function App() {
   return (
@@ -22,9 +34,13 @@ function App() {
             className="toast-container"
             closeOnClick={true}
           />
-          <Header />
-          <Routes />
-          <Footer />
+          <AppContainer>
+            <Header />
+            <MainContent>
+              <Routes />
+            </MainContent>
+            <Footer />
+          </AppContainer>
         </BrowserRouter>
       </PersistGate>
     </Provider>
