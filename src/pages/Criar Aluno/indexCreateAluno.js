@@ -3,37 +3,16 @@ import { toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
 
 import { Container } from "../../styles/globalStyles";
-import { Title, Paragraph, Form, VoltarContainer } from "./styledEditAluno";
+import { Title, Paragraph, Form, VoltarContainer } from "./styledCreateAluno";
 import Loading from "../../components/Loading/indexLoading";
 
 import { isEmail } from "validator";
 import axios from "../../services/axios";
 import { get } from "lodash";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { FaArrowLeft } from "react-icons/fa";
 
-export default function EditAluno() {
-  const [alunos, setAlunos] = React.useState([]);
+export default function CreateAluno() {
   const [isLoading, setIsLoading] = React.useState(false);
-
-  React.useEffect(() => {
-    async function getData() {
-      try {
-        setIsLoading(true);
-        const response = await axios.get("/students");
-        setAlunos(response.data);
-        setIsLoading(false);
-      } catch (e) {
-        console.log("Error:", e);
-      }
-    }
-
-    getData();
-  }, []);
-
-  const { id } = useParams();
-
-  const aluno = alunos.find((aluno) => String(aluno.id) === id);
 
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
@@ -43,18 +22,6 @@ export default function EditAluno() {
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
   const [image, setImage] = useState("");
-
-  React.useEffect(() => {
-    if (aluno) {
-      setName(aluno.name || "");
-      setSurname(aluno.surname || "");
-      setEmail(aluno.email || "");
-      setAge(aluno.age || "");
-      setStudentClass(aluno.class || "");
-      setHeight(aluno.height || "");
-      setWeight(aluno.weight || "");
-    }
-  }, [aluno]);
 
   const history = useHistory();
 
@@ -74,6 +41,10 @@ export default function EditAluno() {
       formErrors.push("Email inválido.");
     }
 
+    if (age < 0) {
+      formErrors.push("Idade não pode ser negativa.");
+    }
+
     if (height < 0) {
       formErrors.push("A altura não pode ser negativa.");
     }
@@ -88,7 +59,7 @@ export default function EditAluno() {
 
     try {
       setIsLoading(true);
-      await axios.put(`/students/update/${id}`, {
+      const response = await axios.post(`/students/create`, {
         name,
         surname,
         class: studentClass,
@@ -98,23 +69,26 @@ export default function EditAluno() {
         weight,
       });
 
-      if (image) {
-        try {
-          const formData = new FormData();
-          formData.append("photoMultipart", image);
-          formData.append("student_id", id);
+      const id = response.data.id;
+      console.log(id);
+      console.log(response);
 
-          await axios.post(`/photo`, formData);
-        } catch (e) {}
+      if (id && image) {
+        const formData = new FormData();
+        formData.append("photoMultipart", image);
+        formData.append("student_id", id);
+
+        await axios.post(`/photo`, formData);
       }
 
       history.push("/");
 
-      toast.success("Aluno editado!");
+      toast.success("Aluno cadastrado!");
     } catch (e) {
       const errors = get(e, "response.data.errors", 0);
 
-      errors.forEach((error) => toast.error(error));
+      errors.map((error) => toast.error(error));
+      console.log(e);
     } finally {
       setIsLoading(false);
     }
@@ -130,10 +104,8 @@ export default function EditAluno() {
           </a>
         </VoltarContainer>
         <Loading isLoading={isLoading} />
-        <Title>
-          Editar <span className="student-name">{name}</span>
-        </Title>
-        <Paragraph>Edite os dados do aluno</Paragraph>
+        <Title>Cadastrar aluno</Title>
+        <Paragraph>Preencha os campos para cadastrar o aluno</Paragraph>
         <Form>
           <label>Nome:</label>
           <input
@@ -158,7 +130,7 @@ export default function EditAluno() {
           />
           <label>Idade:</label>
           <input
-            placeholder="Idade do aluno"
+            placeholder="Email do aluno"
             type="text"
             value={age}
             onChange={(e) => setAge(e.target.value)}
@@ -196,7 +168,7 @@ export default function EditAluno() {
             className="file-input"
           />
           <button type="submit" onClick={handleSubmit}>
-            Confirmar
+            Cadastrar
           </button>
         </Form>
       </Container>

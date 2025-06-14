@@ -39,8 +39,8 @@ export const AlunoContainer = styled.div`
   width: 100%;
 
   img {
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: 50px;
     object-fit: cover;
     object-position: top;
     border-radius: 50%;
@@ -129,4 +129,32 @@ export const SemAlunos = styled.h2`
   text-align: center;
   padding: 15px;
   color: ${colors.primaryGray};
+`;
+
+export const AdicionarAluno = styled.a`
+  background: ${colors.primaryBlack};
+  color: white;
+  display: flex;
+  width: max-content;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 5px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  font-size: 19px;
+  font-weight: 500;
+  transition: all ease-in-out 0.1s;
+
+  &:hover {
+    background: ${colors.primaryDarkBlack};
+    color: ${colors.primaryYellow};
+  }
+
+  &:active {
+    filter: brightness(80%);
+  }
 `;

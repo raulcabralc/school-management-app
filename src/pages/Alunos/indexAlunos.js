@@ -1,7 +1,15 @@
 import React from "react";
-import { FaPen, FaUserSlash, FaUserCircle, FaCheck } from "react-icons/fa";
+import {
+  FaPen,
+  FaUserSlash,
+  FaUserCircle,
+  FaCheck,
+  FaPlus,
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 import { Container } from "../../styles/globalStyles";
 import {
@@ -9,6 +17,7 @@ import {
   AlunoContainer,
   AlunosContainer,
   SemAlunos,
+  AdicionarAluno,
 } from "./styledAlunos";
 import Loading from "../../components/Loading/indexLoading";
 import { get } from "lodash";
@@ -18,6 +27,9 @@ import axios from "../../services/axios";
 export default function Alunos() {
   const [alunos, setAlunos] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(false);
+  const history = useHistory();
+
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   React.useEffect(() => {
     async function getData() {
@@ -36,6 +48,14 @@ export default function Alunos() {
 
   function handleConfirmDelete(e) {
     e.preventDefault();
+
+    if (!isLoggedIn) {
+      toast.info("Realize Login para acessar");
+
+      history.push("/login");
+      return;
+    }
+
     const delButton = e.currentTarget;
     const confirm = delButton.nextSibling;
     delButton.remove();
@@ -46,6 +66,7 @@ export default function Alunos() {
     e.persist();
 
     try {
+      setIsLoading(true);
       await axios.delete(`/students/delete/${id}`);
 
       const novosAlunos = [...alunos];
@@ -60,6 +81,8 @@ export default function Alunos() {
     } catch (e) {
       const errors = get(e, "response.data.errors", []);
       errors.map((error) => toast.error(error));
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -132,6 +155,9 @@ export default function Alunos() {
       <Container>
         <Loading isLoading={isLoading} />
         <Title>Alunos</Title>
+        <AdicionarAluno href="/aluno/cadastrar">
+          <FaPlus /> Adicionar Aluno
+        </AdicionarAluno>
 
         <AlunosContainer>
           <h2 className="classe-separador">Classe A</h2>
