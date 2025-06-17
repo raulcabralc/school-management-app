@@ -5,7 +5,6 @@ import MyRoute from "./MyRoute";
 
 import Login from "../pages/Login/indexLogin";
 import Page404 from "../pages/Page404/index404";
-import AlunoInd from "../pages/Aluno Individual/indexAlunoInd";
 import Alunos from "../pages/Alunos/indexAlunos";
 import Register from "../pages/Cadastro/indexRegister";
 import User from "../pages/User/indexUser";
@@ -21,7 +20,6 @@ export default function Routes() {
       <MyRoute exact path="/user" component={User} isClosed />
       <MyRoute exact path="/aluno/edit/:id" component={EditAluno} isClosed />
       <MyRoute exact path="/aluno/cadastrar" component={CreateAluno} isClosed />
-      <MyRoute exact path="/aluno/" component={AlunoInd} isClosed />
       <MyRoute exact path="/registered" registered />
       <MyRoute exact path="/loggedin" loggedin />
       <MyRoute exact path="/logout" logout />

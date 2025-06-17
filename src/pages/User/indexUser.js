@@ -94,7 +94,9 @@ export default function User() {
           Usuário <b>{user.name}</b> excluído.
         </span>
       );
-    } catch (e) {}
+    } catch (e) {
+      toast.error("Falha ao excluir usuário.");
+    }
   }
 
   return (

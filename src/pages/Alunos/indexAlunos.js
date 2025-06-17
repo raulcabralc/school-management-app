@@ -114,13 +114,7 @@ export default function Alunos() {
           <div className="aluno" key={String(aluno.id)}>
             <div className="aluno-foto-nome">
               {aluno.Photos && aluno.Photos.length > 0 ? (
-                <img
-                  src={aluno.Photos[0].url}
-                  alt={`Foto de ${aluno.name}`}
-                  onError={(e) => {
-                    console.log(e);
-                  }}
-                />
+                <img src={aluno.Photos[0].url} alt={`Foto de ${aluno.name}`} />
               ) : (
                 <FaUserCircle size={50} />
               )}
